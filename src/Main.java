@@ -39,32 +39,29 @@ public class Main {
 
     // Найти сотрудника с минимальной зарплатой
     public static Employee minSalaryEmp(Employee[] empList) {
-        Employee employeeWithMinSalary;
-        for (int i = 0; i < empList.length; i++) {
-            if (empList[i] != null) {
-                if (employeeWithMinSalary == null) {
-                    employeeWithMinSalary = empList[i];
+        Employee employeeWithMinSalary = null;
+        for (Employee employee : empList) {
+            if (employee != null) {
+                if (employeeWithMinSalary == null
+                        || employeeWithMinSalary.getSalary() > employee.getSalary()) {
+                    employeeWithMinSalary = employee;
                 }
             }
         }
-
         return employeeWithMinSalary;
     }
-
     // Найти сотрудника с максимальной зарплатой
     public static Employee maxSalaryEmp(Employee[] empList) {
-        int maxSalary = 0;
-        int maxSalaryEmpInd = 0;
-        for (int i = 0; i < empList.length; i++) {
-            if (empList[i] != null) {
-                if (maxSalary < empList[i].getSalary()) {
-                    maxSalary = empList[i].getSalary();
-                    maxSalaryEmpInd = i;
+        Employee employeeWithMaxSalary = null;
+        for (Employee employee : empList) {
+            if (employee != null) {
+                if (employeeWithMaxSalary == null
+                        || employeeWithMaxSalary.getSalary() < employee.getSalary()) {
+                    employeeWithMaxSalary = employee;
                 }
             }
         }
-        Employee maxSalaryEmp = empList[maxSalaryEmpInd];
-        return maxSalaryEmp;
+        return employeeWithMaxSalary;
     }
 
     // Подсчитать среднее значение зарплат

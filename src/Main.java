@@ -39,21 +39,16 @@ public class Main {
 
     // Найти сотрудника с минимальной зарплатой
     public static Employee minSalaryEmp(Employee[] empList) {
-        int minSalary = 0;
-        int minSalaryEmpInd = 0;
+        Employee employeeWithMinSalary;
         for (int i = 0; i < empList.length; i++) {
             if (empList[i] != null) {
-                if (minSalary == 0) { //Если empList[0] не заполнен
-                    minSalary = empList[i].getSalary();
-                }
-                if (minSalary > empList[i].getSalary()) {
-                    minSalary = empList[i].getSalary();
-                    minSalaryEmpInd = i;
+                if (employeeWithMinSalary == null) {
+                    employeeWithMinSalary = empList[i];
                 }
             }
         }
-        Employee minSalaryEmp = empList[minSalaryEmpInd];
-        return minSalaryEmp;
+
+        return employeeWithMinSalary;
     }
 
     // Найти сотрудника с максимальной зарплатой

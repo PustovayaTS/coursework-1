@@ -1,8 +1,8 @@
 public class Employee {
-    private String fullName;
+    private final String fullName;
     private int department;
     private int salary;
-    private int empId;
+    private final int empId;
     private static int id;
 
     public Employee(String fullName, int department, int salary) {
